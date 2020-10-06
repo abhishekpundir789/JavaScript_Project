@@ -6,6 +6,58 @@
     <title>Eat with Warriors</title>
 </head>
 <body>
-    <h1>Eat With The Warriors</h1>
+    <header>
+        <h1><u>Lord Of The Fries</u></h1>
+        <a href=#>Home</a> &nbsp;
+        <a href=#>Order Online</a>&nbsp;
+        <a href=#>Food Items</a>
+    </header><hr><br>
+
+    <main>
+        <h3><u>Please select your item from menu</u></h3>
+        <table>
+            <tr>
+              <th>Appetizer Menu</th>
+              <th>Price</th>
+            </tr>
+            <tr>
+              <td>2. Texas Cheese Fries</td>
+              <td>$6.87</td>
+            </tr>
+            <tr>
+              <td>3. Loaded Nachos Fries</td>
+              <td>$4.25</td>
+            </tr>
+            <tr>
+              <td>4. French Fries Board</td>
+              <td>$8.80</td>
+            </tr>
+            <tr>
+              <td>5. Lunchion Fries</td>
+              <td>$10.50</td>
+            </tr>
+            <tr>
+              <td>6. Lobster Fries</td>
+              <td>$12.36</td>
+        </table><br>
+        <form>
+            <select id="mySelect">
+                <option value="No items Selected">1</option>
+                <option value="Texas Cheese Fries &nbsp; &nbsp; &nbsp; $6.87">2</option>
+                <option value="Loaded Nachos Fries &nbsp; &nbsp; &nbsp; $6.87">3</option>
+                <option value="Texas Cheese Fries &nbsp; &nbsp; &nbsp; $6.87">4</option>
+                <option value="Texas Cheese Fries &nbsp; &nbsp; &nbsp; $6.87">5</option>
+                <option value="Texas Cheese Fries &nbsp; &nbsp; &nbsp; $6.87">6</option>
+            </select>
+        </form>
+        <button type ="Select Order" onclick="myFunction();">Select Order</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction(){
+                var x = document.getElementById("mySelect").value;
+                document.getElementById("demo").innerHTML=x;
+            }
+        </script>
+    </main>
 </body>
 </html>
