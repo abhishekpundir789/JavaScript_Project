@@ -298,3 +298,4 @@ for(i=0; i<BeverageMenu.length; i++){
 
   Beverageselect.appendChild(option); 
  }
+
