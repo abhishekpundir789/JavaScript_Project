@@ -1,5 +1,12 @@
 // ---------------------------------------------- ///
-// 1. Query document for all tables
+// 1. Import menus
+// ---------------------------------------------- //
+import { appetizers } from './menus/appetizers.js'
+import { maincourses } from './menus/maincourses.js'
+import { desserts } from './menus/desserts.js'
+import { beverages } from './menus/beverages.js'
+// ---------------------------------------------- ///
+// 2. Query document for all tables
 // ---------------------------------------------- //
 const appetizerTable = document.querySelector('#appetizer');
 const maincourseTable = document.querySelector('#mainCourse');
@@ -7,160 +14,12 @@ const dessertTable = document.querySelector('#dessert');
 const beverageTable = document.querySelector('#beverages');
 
 // ---------------------------------------------- //
-// 2. Query document for all Select Boxes
+// 3. Query document for all Select Boxes
 // ---------------------------------------------- //
 const appetizerSelect = document.querySelector('#appetizerSelect')
 const maincourseSelect = document.querySelector('#mainCourseSelect')
 const dessertSelect = document.querySelector('#dessertSelect')
 const beverageSelect = document.querySelector('#beverageSelect')
-
-// ---------------------------------------------- //
-// 3. Initialize array of menu items
-// ---------------------------------------------- //
-
-// ----------------//
-// 3.1 Appetizers
-// ----------------//
-const appetizers = [
-  {
-    id: 1,
-    name: "No Selection",
-    price: 0 
-  },
-  {
-    id: 2,
-    name: "Texas Cheese Fries",
-    price: 6.87 
-  },
-  {
-    id: 3,
-    name: "Loaded Nachos Fries",
-    price: 4.25
-  },
-  {
-    id: 4,
-    name: "French Fries Board",
-    price: 8.80 
-  },
-  {
-    id: 5,
-    name: "Lunchion Fries",
-    price: 4.50 
-  },
-  {
-    id:6,
-    name: "Lobster Fries",
-    price: 12.36
-  }
-]
-
-// ----------------//
-// 3.2 Main Courses
-// ----------------//
-const maincourses = [
-  {
-    id: 1,
-    name: "No Selection",
-    price: 0 
-  },
-  {
-    id: 2,
-    name: "Crispy Fish & Chips",
-    price: 9.99 
-  },
-  {
-    id: 3,
-    name: "Texas Chilli Fries",
-    price: 8.89
-  },
-  {
-    id: 4,
-    name: "Waffle Fry Nachos",
-    price: 10.50
-  },
-  {
-    id: 5,
-    name: "Steak And Fries Salad",
-    price: 10.99
-  },
-  {
-    id:6,
-    name: "Short Rib Poutine",
-    price: 12.99
-  } 
-]
-
-// ----------------//
-// 3.3 Deserts
-// ----------------//
-const desserts = [
-  {
-    id: 1,
-    name: "No Selection",
-    price: 0 
-  },
-  {
-    id: 2,
-    name: "Green Tea Cake",
-    price: 9.99 
-  },
-  {
-    id: 3,
-    name: "Oreo choco Cake",
-    price: 8.89
-  },
-  {
-    id: 4,
-    name: "Vegan Chocolotae Cake",
-    price: 10.50
-  },
-  {
-    id: 5,
-    name: "Matcha Cake",
-    price: 10.99
-  },
-  {
-    id:6,
-    name: "Mango Coconut Souffle",
-    price: 12.99
-  } 
-]
-
-// ----------------//
-// 3.4 Beverages
-// ----------------//
-const beverages = [
-  {
-    id: 1,
-    name: "No Selection",
-    price: 0 
-  },
-  {
-    id: 2,
-    name: "Diet Coke",
-    price: 1.25
-  },
-  {
-    id: 3,
-    name: "Orange Crush",
-    price: 1.50
-  },
-  {
-    id: 4,
-    name: "Strawberry Crafted Beer",
-    price: 3.99
-  },
-  {
-    id: 5,
-    name: "Canned Sprite Pop",
-    price: 1.99
-  },
-  {
-    id:6,
-    name: "Mango Shake",
-    price: 3.45
-  } 
-]
 
 
 // ---------------------------------------------- //
@@ -172,18 +31,15 @@ const beverages = [
 // ----------------//
 renderTables(appetizers, appetizerTable);
 
-
 // ----------------//
 // 4.2 maincourses
 // ----------------//
 renderTables(maincourses, maincourseTable);
 
-
 // ----------------//
 // 4.3 Deserts
 // ----------------//
 renderTables(desserts, dessertTable);
-
 
 // ----------------//
 // 4.4 Beverages
@@ -192,22 +48,22 @@ renderTables(beverages, beverageTable);
 
 // Renders table rows
 function renderTables(array, table) {
-  for(i = 0; i < array.length; i++){
+  array.forEach( a => {
     // create a table row element 
     const tr = document.createElement('tr');
     // create the two columns that will go into the table row
     const colOne = document.createElement('td');
     const colTwo = document.createElement('td');
     // Edit the left column's inner html to include the item's id and it's name
-    colOne.innerHTML = `${array[i].id}. ${array[i].name}`
+    colOne.innerHTML = `${a.id}. ${a.name}`
     // Edit the right column's innter html to include the item's price. Also round the price to (2) decimal points
-    colTwo.innerHTML = `$${array[i].price.toFixed(2)}`
+    colTwo.innerHTML = `$${a.price.toFixed(2)}`
     // Now we use appendChild() to append the newly edited columns into the table row element we created earlier
     tr.appendChild(colOne);
     tr.appendChild(colTwo);
     // then we select the table, and append the table row which now includes the two <td>'s
     table.appendChild(tr);
-  }
+  });
 }
 
 // ---------------------------------------------- //
@@ -236,16 +92,16 @@ renderSelect(beverages, beverageSelect);
 
 // Renders select options
 function renderSelect(array, select){
-  for(i = 0; i < array.length; i++){
+  array.forEach( a => {
     // create an option element 
     const option = document.createElement('option');
     // edit the inner HTML to include the price and name of item
-    option.innerHTML = `${array[i].name}  $${array[i].price}`
+    option.innerHTML = `${a.name}  $${a.price}`
     // add attribute of value and assign the item's ID
-    option.setAttribute("value", array[i].id);
+    option.setAttribute("value", a.id);
     // then we select the table, and append the table row which now includes the two <td>'s
     select.appendChild(option);
-  }
+  });
 }
 
 // ---------------------------------------------- //
