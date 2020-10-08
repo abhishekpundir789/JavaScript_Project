@@ -5,6 +5,7 @@ import { appetizers } from './menus/appetizers.js'
 import { maincourses } from './menus/maincourses.js'
 import { desserts } from './menus/desserts.js'
 import { beverages } from './menus/beverages.js'
+
 // ---------------------------------------------- ///
 // 2. Query document for all tables
 // ---------------------------------------------- //
@@ -26,27 +27,14 @@ const beverageSelect = document.querySelector('#beverageSelect')
 // 4. Dynamically create table rows
 // ---------------------------------------------- //
 
-// ----------------//
-// 4.1 Appetizers
-// ----------------//
 renderTables(appetizers, appetizerTable);
-
-// ----------------//
-// 4.2 maincourses
-// ----------------//
 renderTables(maincourses, maincourseTable);
-
-// ----------------//
-// 4.3 Deserts
-// ----------------//
 renderTables(desserts, dessertTable);
-
-// ----------------//
-// 4.4 Beverages
-// ----------------//
 renderTables(beverages, beverageTable);
 
-// Renders table rows
+// ----------------//
+// 4.1 Render Tables Fn
+// ----------------//
 function renderTables(array, table) {
   array.forEach( a => {
     // create a table row element 
@@ -70,24 +58,9 @@ function renderTables(array, table) {
 // 5. Dynamically select options
 // ---------------------------------------------- //
 
-// ----------------//
-// 5.1 Appetizers
-// ----------------//
 renderSelect(appetizers, appetizerSelect);
-
-// ----------------//
-// 5.2 maincourses
-// ----------------//
 renderSelect(maincourses, maincourseSelect);
-
-// ----------------//
-// 5.3 Desserts
-// ----------------//
 renderSelect(desserts, dessertSelect);
-
-// ----------------//
-// 5.4 Beverages
-// ----------------//
 renderSelect(beverages, beverageSelect);
 
 // Renders select options
@@ -108,23 +81,27 @@ function renderSelect(array, select){
 // 6. Compile order 
 // ---------------------------------------------- //
 
+// Initialize Empty Array
+var orders = []
+var orderPrices = []
+var price;
+
 
 // ----------------//
 // 6.1 Query Output containers
 // ----------------//
 
 const output = document.querySelector('#output');
+const totalOutput = output.querySelector('#totalOutput')
 
 const appetizerOutput = output.querySelector('#appetizerOutput');
 const maincourseOutput = output.querySelector('#maincourseOutput');
 const dessertOutput = output.querySelector('#dessertOutput');
 const beverageOutput = output.querySelector('#beverageOutput');
-const totalOutput = output.querySelector('#totalOutput')
 
-// Initialize Empty Array
-var orders = []
-var orderPrices = []
-var price;
+// Display orders on initial load
+displayOrders();
+
 
 // Query Submit Buttons and Full Menu
 const button = document.querySelector('#submit');
@@ -135,7 +112,7 @@ fullMenu.addEventListener("input", function(){
   orderPrices = []
   price;
   displayOrders();
-})
+});
 
 button.addEventListener("click", function(e){
   // prevent form default
@@ -147,25 +124,13 @@ button.addEventListener("click", function(e){
 });
 
 function displayOrders(){
-  // ----------------//
-  // 6.2 Appetizers
-  // ----------------//
+  // Print selection
   printSelection(appetizers, appetizerSelect, appetizerOutput);
-  // ----------------//
-  // 6.3 maincourses
-  // ----------------//
   printSelection(maincourses, maincourseSelect, maincourseOutput);
-  // ----------------//
-  // 6.4 Deserts
-  // ----------------//
   printSelection(desserts, dessertSelect, dessertOutput);
-  // ----------------//
-  // 6.5 Beverages
-  // ----------------//
   printSelection(beverages, beverageSelect, beverageOutput);
-  // ----------------//
-  // Compile Prices
-  // ----------------//
+
+  // output price
   outputTotal(orderPrices)
 }
 
