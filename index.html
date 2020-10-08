@@ -14,58 +14,55 @@
     </header><hr><br>
 
     <main>
-      <h3><u>Please select your item from menu</u></h3>
-      <form>
-        <table id="appetizer">
-            <tr>
-              <th>Appetizer Menu</th>
-              <th>Price</th>
-            </tr>
-        </table>
-        
-            <select id="appetizerSelect">
-            </select>
-        <br>
-        
-        <p id="demo"></p><br>
-        <h3><u>Please select items from Main Course menu</u></h3>
-        <table id ="mainCourse">
-          <tr>
-            <th>Main Course Menu</th>
-            <th>Price</th>
-          </tr>
-        </table>
-        
-          <select id="mainCourseSelect"></select>
-        <br>
-        
-        <h3><u> Select items from Dessert Menu</u></h3>
-        <table id="dessert">
-          <tr>
-            <th>Dessert Menu</th>
-            <th>Price</th>
-          </tr>
-        </table>
-        
-          <select id="dessertSelect"></select>
-        <br>
-        
-        <h3><u>Select items from Beverage Menu</u></h3>
-        <table id="beverages">
-          <tr>
-            <th>Beverage Menu</th>
-            <th>Price</th>
-          </tr>
-        </table>
-        
-          <select id="beverageSelect"></select>
-        <br><br>
-       
-        <button id="submit">Submit Order</button>
-        <button id="cancel">Cancel Order</button>
-      </form> 
-        <script src="index.js"></script>
-        
-      </main>
+        <form id="fullMenu">
+
+            <!-- Select Appetizer -->
+            <table id="appetizer">
+                <tr>
+                    <th>Appetizer Menu</th>
+                    <th>Price</th>
+                </tr>
+            </table>
+
+            <select id="appetizerSelect"></select>
+
+            <!-- Select Maincourse -->
+            <table id="mainCourse">
+                <tr>
+                <th>Main Course Menu</th>
+                <th>Price</th>
+                </tr>
+            </table>
+
+            <select id="mainCourseSelect"></select>
+
+            <!-- Select Dessert -->
+            <table id="dessert">
+                <tr>
+                <th>Dessert Menu</th>
+                <th>Price</th>
+                </tr>
+            </table>
+
+            <select id="dessertSelect"></select>
+
+            <!-- Select Beverages -->
+            <table id="beverages">
+                <tr>
+                <th>Beverage Menu</th>
+                <th>Price</th>
+                </tr>
+            </table>
+
+            <select id="beverageSelect"></select>
+
+            <!-- Submit/Clear order -->
+            <br/>
+            <button id="submit">Submit Order</button>
+            <button id="cancel">Cancel Order</button>
+        </form> 
+
+    </main>
+    <script src="index.js"></script>
 </body>
 </html>
