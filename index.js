@@ -2,17 +2,17 @@
 // 1. Query document for all tables
 // ---------------------------------------------- //
 const appetizerTable = document.querySelector('#appetizer');
-const MaincourseTable = document.querySelector('#mainCourse');
-const Desserttable = document.querySelector('#dessert');
-const Beveragetable = document.querySelector('#beverages');
+const maincourseTable = document.querySelector('#mainCourse');
+const dessertTable = document.querySelector('#dessert');
+const beverageTable = document.querySelector('#beverages');
 
 // ---------------------------------------------- //
 // 2. Query document for all Select Boxes
 // ---------------------------------------------- //
 const appetizerSelect = document.querySelector('#appetizerSelect')
-const MaincourseSelect = document.querySelector('#mainCourseSelect')
-const Dessertselect = document.querySelector('#dessertSelect')
-const Beverageselect = document.querySelector('#beverageSelect')
+const maincourseSelect = document.querySelector('#mainCourseSelect')
+const dessertSelect = document.querySelector('#dessertSelect')
+const beverageSelect = document.querySelector('#beverageSelect')
 
 // ---------------------------------------------- //
 // 3. Initialize array of menu items
@@ -57,7 +57,7 @@ const appetizers = [
 // ----------------//
 // 3.2 Main Courses
 // ----------------//
-const mainCourses = [
+const maincourses = [
   {
     id: 1,
     name: "No Selection",
@@ -93,7 +93,7 @@ const mainCourses = [
 // ----------------//
 // 3.3 Deserts
 // ----------------//
-const dessertMenu = [
+const desserts = [
   {
     id: 1,
     name: "No Selection",
@@ -129,7 +129,7 @@ const dessertMenu = [
 // ----------------//
 // 3.4 Beverages
 // ----------------//
-const BeverageMenu = [
+const beverages = [
   {
     id: 1,
     name: "No Selection",
@@ -189,24 +189,24 @@ for(i = 0; i < appetizers.length; i++){
 
 
 // ----------------//
-// 4.2 Maincourses
+// 4.2 maincourses
 // ----------------//
 
-for(i = 0; i < mainCourses.length; i++){
+for(i = 0; i < maincourses.length; i++){
   // create a table row element 
   const tr = document.createElement('tr');
   // create the two columns that will go into the table row
   const colOne = document.createElement('td');
   const colTwo = document.createElement('td'); 
   // Edit the left column's inner html to include the item's id and it's name
-  colOne.innerHTML=`${mainCourses[i].id}. ${mainCourses[i].name}`
+  colOne.innerHTML=`${maincourses[i].id}. ${maincourses[i].name}`
   // Edit the right column's innter html to include the item's price. Also round the price to (2) decimal points
-  colTwo.innerHTML=`$${mainCourses[i].price.toFixed(2)}`
+  colTwo.innerHTML=`$${maincourses[i].price.toFixed(2)}`
    // Now we use appendChild() to append the newly edited columns into the table row element we created earlier
   tr.appendChild(colOne);
   tr.appendChild(colTwo);
    // then we select the table, and append the table row which now includes the two <td>'s
-  MaincourseTable.appendChild(tr);
+  maincourseTable.appendChild(tr);
 }
 
 
@@ -214,21 +214,21 @@ for(i = 0; i < mainCourses.length; i++){
 // 4.3 Deserts
 // ----------------//
 
-for(i = 0; i < dessertMenu.length; i++){
+for(i = 0; i < desserts.length; i++){
   // create a table row element 
   const tr = document.createElement('tr');
   // create the two columns that will go into the table row
   const colOne = document.createElement('td');
   const colTwo = document.createElement('td'); 
   // Edit the left column's inner html to include the item's id and it's name
-  colOne.innerHTML=`${dessertMenu[i].id}. ${dessertMenu[i].name}`
+  colOne.innerHTML=`${desserts[i].id}. ${desserts[i].name}`
   // Edit the right column's innter html to include the item's price. Also round the price to (2) decimal points
-  colTwo.innerHTML=`$${dessertMenu[i].price.toFixed(2)}`
+  colTwo.innerHTML=`$${desserts[i].price.toFixed(2)}`
   // Now we use appendChild() to append the newly edited columns into the table row element we created earlier
   tr.appendChild(colOne);
   tr.appendChild(colTwo);
   // then we select the table, and append the table row which now includes the two <td>'s
-  Desserttable.appendChild(tr);
+  dessertTable.appendChild(tr);
 }
 
 
@@ -236,21 +236,21 @@ for(i = 0; i < dessertMenu.length; i++){
 // 4.4 Beverages
 // ----------------//
 
-for(i = 0; i < BeverageMenu.length; i++){
+for(i = 0; i < beverages.length; i++){
   // create a table row element 
   const tr = document.createElement('tr');
   // create the two columns that will go into the table row
   const colOne = document.createElement('td');
   const colTwo = document.createElement('td'); 
   // Edit the left column's inner html to include the item's id and it's name
-  colOne.innerHTML=`${BeverageMenu[i].id}. $${BeverageMenu[i].name}`
+  colOne.innerHTML=`${beverages[i].id}. ${beverages[i].name}`
   // Edit the right column's innter html to include the item's price. Also round the price to (2) decimal points
-  colTwo.innerHTML=`$${BeverageMenu[i].price.toFixed(2)}`
+  colTwo.innerHTML=`$${beverages[i].price.toFixed(2)}`
   // Now we use appendChild() to append the newly edited columns into the table row element we created earlier
   tr.appendChild(colOne);
   tr.appendChild(colTwo);
   // then we select the table, and append the table row which now includes the two <td>'s
-  Beveragetable.appendChild(tr);
+  beverageTable.appendChild(tr);
 }
 
 
@@ -276,16 +276,16 @@ for(i = 0; i < appetizers.length; i++){
 
 
 // ----------------//
-// 5.2 Maincourses
+// 5.2 maincourses
 // ----------------//
 
-for(i = 0; i < mainCourses.length; i++){
+for(i = 0; i < maincourses.length; i++){
   // create an option element 
   const option = document.createElement('option');
   // edit the inner HTML to include the price and name of item
-  option.innerHTML = `${mainCourses[i].name} $${mainCourses[i].price}`
+  option.innerHTML = `${maincourses[i].name} $${maincourses[i].price}`
   // add attribute of value and assign the item's ID
-  option.setAttribute("value", mainCourses[i].id);
+  option.setAttribute("value", maincourses[i].id);
   // then we select the table, and append the table row which now includes the two <td>'s
   mainCourseSelect.appendChild(option); 
 }
@@ -294,30 +294,30 @@ for(i = 0; i < mainCourses.length; i++){
 // 5.3 Desserts
 // ----------------//
 
-for(i = 0; i < dessertMenu.length; i++) {
+for(i = 0; i < desserts.length; i++) {
   // create an option element 
   const option = document.createElement('option');
   // edit the inner HTML to include the price and name of item
-  option.innerHTML = `${dessertMenu[i].name} $${dessertMenu[i].price}`
+  option.innerHTML = `${desserts[i].name} $${desserts[i].price}`
   // add attribute of value and assign the item's ID
-  option.setAttribute("value", dessertMenu[i].id);
+  option.setAttribute("value", desserts[i].id);
   // then we select the table, and append the table row which now includes the two <td>'s
-  Dessertselect.appendChild(option); 
+  dessertSelect.appendChild(option); 
 }
 
 // ----------------//
 // 5.4 Beverages
 // ----------------//
 
-for(i = 0; i < BeverageMenu.length; i++){
+for(i = 0; i < beverages.length; i++){
   // create an option element 
   const option = document.createElement('option');
   // edit the inner HTML to include the price and name of item
-  option.innerHTML = `${BeverageMenu[i].name} $${BeverageMenu[i].price}`
+  option.innerHTML = `${beverages[i].name} $${beverages[i].price}`
   // add attribute of value and assign the item's ID
-  option.setAttribute("value", BeverageMenu[i].id);
+  option.setAttribute("value", beverages[i].id);
   // then we select the table, and append the table row which now includes the two <td>'s
-  Beverageselect.appendChild(option); 
+  beverageSelect.appendChild(option); 
 }
 
 // ---------------------------------------------- //
@@ -346,15 +346,15 @@ button.addEventListener("click", function(e){
   menuArray.push(appetizerResult[0].name);
     
   // ----------------//
-  // 6.2 Maincourses
+  // 6.2 maincourses
   // ----------------//
 
   // Pull value of maincourse select
-  var MaincourseSelectedId = MaincourseSelect.value;
+  var maincourseSelectedId = maincourseSelect.value;
   // Find the selected appetizer in appetizer menu
-  const MaincourseResult = mainCourses.filter(Maincourse => Maincourse.id == MaincourseSelectedId );
+  const maincourseResult = maincourses.filter(maincourse => maincourse.id == maincourseSelectedId );
   // push selected appetizer to menuArray
-  menuArray.push(MaincourseResult[0].name);
+  menuArray.push(maincourseResult[0].name);
 
   
   // ----------------//
@@ -362,9 +362,9 @@ button.addEventListener("click", function(e){
   // ----------------//
 
   // Pull value of dessert select
-  var DessertSelectedId = Dessertselect.value;
+  var DessertSelectedId = dessertSelect.value;
   // Find the selected appetizer in appetizer menu
-  const DessertResult = dessertMenu.filter(DesertMenu => DesertMenu.id == DessertSelectedId );
+  const DessertResult = desserts.filter(DesertMenu => DesertMenu.id == DessertSelectedId );
   // push selected appetizer to menuArray
   menuArray.push(DessertResult[0].name);
 
@@ -374,9 +374,9 @@ button.addEventListener("click", function(e){
   // ----------------//
 
   // Pull value of beverage select
-  var beverageSelectedId = Beverageselect.value;
+  var beverageSelectedId = beverageSelect.value;
   // Find the selected appetizer in appetizer menu
-  const beverageResult = BeverageMenu.filter(beverageMenu => beverageMenu.id == beverageSelectedId );
+  const beverageResult = beverages.filter(beverageMenu => beverageMenu.id == beverageSelectedId );
   // push selected appetizer to menuArray
   menuArray.push(beverageResult[0].name);
 
@@ -388,15 +388,15 @@ button.addEventListener("click", function(e){
 
     price = beverageResult[0].price + 
             DessertResult[0].price + 
-            MaincourseResult[0].price + 
+            maincourseResult[0].price + 
             appetizerResult[0].price;
 
-    console.log(`total Bill:$ ${price}`)
+    console.log(`total Bill:$ ${price.toFixed(2)}`)
     console.log(menuArray);
 });
 
 // ---------------------------------------------- //
-// 6. Clear order
+// 7. Clear order
 // ---------------------------------------------- //
 
 // Query the clear button
@@ -407,9 +407,9 @@ Clear.addEventListener("click", function(e){
   // prevent default form behaviour
   e.preventDefault();
   // reset select boxes
-  Beverageselect.value=1;
-  Dessertselect.value=1;
-  MaincourseSelect.value=1;
+  beverageSelect.value=1;
+  dessertSelect.value=1;
+  maincourseSelect.value=1;
   appetizerSelect.value=1;
   //reset menuArray and price
   const menuArray=[]
