@@ -7,78 +7,51 @@ import { desserts } from './menus/desserts.js'
 import { beverages } from './menus/beverages.js'
 
 // ---------------------------------------------- ///
-// 2. Query document for all tables
+// 2. Import Utility functions
+// ---------------------------------------------- //
+import { renderTables, renderSelect } from './utilities/index.js'
+
+// ---------------------------------------------- ///
+// 3. Query document for all tables
 // ---------------------------------------------- //
 const appetizerTable = document.querySelector('#appetizer');
-const maincourseTable = document.querySelector('#mainCourse');
+const maincourseTable = document.querySelector('#maincourse');
 const dessertTable = document.querySelector('#dessert');
 const beverageTable = document.querySelector('#beverages');
 
 // ---------------------------------------------- //
-// 3. Query document for all Select Boxes
+// 4. Query document for all Select Boxes
 // ---------------------------------------------- //
 const appetizerSelect = document.querySelector('#appetizerSelect')
-const maincourseSelect = document.querySelector('#mainCourseSelect')
+const maincourseSelect = document.querySelector('#maincourseSelect')
 const dessertSelect = document.querySelector('#dessertSelect')
 const beverageSelect = document.querySelector('#beverageSelect')
 
 
 // ---------------------------------------------- //
-// 4. Dynamically create table rows
+// 5. Dynamically create and render table rows
 // ---------------------------------------------- //
 
+// Please see ./utilities for fn
 renderTables(appetizers, appetizerTable);
 renderTables(maincourses, maincourseTable);
 renderTables(desserts, dessertTable);
 renderTables(beverages, beverageTable);
 
-// ----------------//
-// 4.1 Render Tables Fn
-// ----------------//
-function renderTables(array, table) {
-  array.forEach( a => {
-    // create a table row element 
-    const tr = document.createElement('tr');
-    // create the two columns that will go into the table row
-    const colOne = document.createElement('td');
-    const colTwo = document.createElement('td');
-    // Edit the left column's inner html to include the item's id and it's name
-    colOne.innerHTML = `${a.id}. ${a.name}`
-    // Edit the right column's innter html to include the item's price. Also round the price to (2) decimal points
-    colTwo.innerHTML = `$${a.price.toFixed(2)}`
-    // Now we use appendChild() to append the newly edited columns into the table row element we created earlier
-    tr.appendChild(colOne);
-    tr.appendChild(colTwo);
-    // then we select the table, and append the table row which now includes the two <td>'s
-    table.appendChild(tr);
-  });
-}
 
 // ---------------------------------------------- //
-// 5. Dynamically select options
+// 6. Dynamically render select options
 // ---------------------------------------------- //
 
+// Please see ./utilities for fn
 renderSelect(appetizers, appetizerSelect);
 renderSelect(maincourses, maincourseSelect);
 renderSelect(desserts, dessertSelect);
 renderSelect(beverages, beverageSelect);
 
-// Renders select options
-function renderSelect(array, select){
-  array.forEach( a => {
-    // create an option element 
-    const option = document.createElement('option');
-    // edit the inner HTML to include the price and name of item
-    option.innerHTML = `${a.name}  $${a.price}`
-    // add attribute of value and assign the item's ID
-    option.setAttribute("value", a.id);
-    // then we select the table, and append the table row which now includes the two <td>'s
-    select.appendChild(option);
-  });
-}
 
 // ---------------------------------------------- //
-// 6. Compile order 
+// 7. Compile order 
 // ---------------------------------------------- //
 
 // Initialize Empty Array
@@ -88,12 +61,14 @@ var price;
 
 
 // ----------------//
-// 6.1 Query Output containers
+// 7.1 Query Output containers
 // ----------------//
 
+// Main outputs
 const output = document.querySelector('#output');
 const totalOutput = output.querySelector('#totalOutput')
 
+// Menu selection Outputs
 const appetizerOutput = output.querySelector('#appetizerOutput');
 const maincourseOutput = output.querySelector('#maincourseOutput');
 const dessertOutput = output.querySelector('#dessertOutput');
