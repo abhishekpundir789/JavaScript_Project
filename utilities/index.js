@@ -30,7 +30,7 @@ const renderSelect = (array, select) => {
       // create an option element 
       const option = document.createElement('option');
       // edit the inner HTML to include the price and name of item
-      option.innerHTML = `${a.name}  $${a.price}`
+      option.innerHTML = `${a.name}`
       // add attribute of value and assign the item's ID
       option.setAttribute("value", a.id);
       // then we select the table, and append the table row which now includes the two <td>'s
@@ -49,7 +49,7 @@ const printSelection = (array, select, output, ordersArray, orderPricesArray) =>
     var selectedId = select.value;
     // Find the selected appetizer in appetizer menu
     const result = array.filter(a => a.id == selectedId );
-    output.innerHTML = `${result[0].name} $${result[0].price.toFixed(2)}`;
+    output.innerHTML = `${result[0].name}`;
     // Push orders to respective array
     ordersArray.push(result[0])
     orderPricesArray.push(result[0].price);

@@ -90,7 +90,7 @@ fullMenu.addEventListener("input", function(){
 
 function displayOrders(){
   // Print selection for each menu - this will push the selected items into orders, and compile the prices into orderPrices array.
-  // Please see utilities for fn
+  // Please see ./utilities for fn
   printSelection(appetizers, appetizerSelect, appetizerOutput, orders, orderPrices);
   printSelection(maincourses, maincourseSelect, maincourseOutput, orders, orderPrices);
   printSelection(desserts, dessertSelect, dessertOutput, orders, orderPrices);

@@ -1,0 +1,38 @@
+* h1{
+    @include heading-bold;
+    color: #262626;
+    letter-spacing: .05em;
+}
+
+* h3 {
+    @include heading-bold;
+    font-size: 2em;
+    color: #262626;
+    letter-spacing: .05em;
+    margin-bottom: 7px;
+}
+
+* h4{
+    @include heading-bold;
+    letter-spacing: .05em;
+    color: #262626;
+}
+
+
+* h5{
+    @include heading-bold;
+    letter-spacing: .05em;
+    color: #262626;  
+}
+
+* p,
+* span,
+* a,
+* button {
+    @include body-regular;
+    color: #262626;
+    max-width: 500px;
+    line-height: 1.3em;
+}
+
+
