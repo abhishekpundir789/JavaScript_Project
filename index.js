@@ -9,14 +9,18 @@ import { beverages } from './menus/beverages.js'
 // ---------------------------------------------- //
 // 2. Import Utility functions
 // ---------------------------------------------- //
-import { renderTables, renderSelect, printSelection, outputTotal } from './utilities/index.js'
+import { renderTables, 
+         renderSelect, 
+         printSelection, 
+         outputTotal, 
+         renderReceipt } from './utilities/index.js'
 
 // ---------------------------------------------- ///
 // 3. Query document for all tables
 // ---------------------------------------------- //
-const appetizerTable = document.querySelector('#appetizer');
-const maincourseTable = document.querySelector('#maincourse');
-const dessertTable = document.querySelector('#dessert');
+const appetizerTable = document.querySelector('#appetizers');
+const maincourseTable = document.querySelector('#maincourses');
+const dessertTable = document.querySelector('#desserts');
 const beverageTable = document.querySelector('#beverages');
 
 // ---------------------------------------------- //
@@ -26,7 +30,6 @@ const appetizerSelect = document.querySelector('#appetizerSelect')
 const maincourseSelect = document.querySelector('#maincourseSelect')
 const dessertSelect = document.querySelector('#dessertSelect')
 const beverageSelect = document.querySelector('#beverageSelect')
-
 
 // ---------------------------------------------- //
 // 5. Dynamically create and render table rows
@@ -38,9 +41,8 @@ renderTables(maincourses, maincourseTable);
 renderTables(desserts, dessertTable);
 renderTables(beverages, beverageTable);
 
-
 // ---------------------------------------------- //
-// 6. Dynamically render select options
+// 6. Dynamically create and render select options
 // ---------------------------------------------- //
 
 // Please see ./utilities for fn
@@ -49,12 +51,11 @@ renderSelect(maincourses, maincourseSelect);
 renderSelect(desserts, dessertSelect);
 renderSelect(beverages, beverageSelect);
 
-
 // ---------------------------------------------- //
 // 7. Compile order 
 // ---------------------------------------------- //
 
-// Initialize Empty Array
+// Initialize Empty Arrays, and variable
 var orders = []
 var orderPrices = []
 var price;
@@ -76,65 +77,70 @@ const beverageOutput = output.querySelector('#beverageOutput');
 // Display orders on initial load
 displayOrders();
 
-
-// Query Submit Buttons and Full Menu
-const button = document.querySelector('#submit');
 const fullMenu = document.querySelector('#fullMenu');
 
 fullMenu.addEventListener("input", function(){
+  // reset orders and prices
   orders = []
   orderPrices = []
   price;
-  displayOrders();
-});
-
-button.addEventListener("click", function(e){
-  // prevent form default
-  e.preventDefault();
-  orders = []
-  orderPrices = []
-  price;
+  // prints selections and total price
   displayOrders();
 });
 
 function displayOrders(){
-  // Print selection for each menu
+  // Print selection for each menu - this will push the selected items into orders, and compile the prices into orderPrices array.
+  // Please see utilities for fn
   printSelection(appetizers, appetizerSelect, appetizerOutput, orders, orderPrices);
   printSelection(maincourses, maincourseSelect, maincourseOutput, orders, orderPrices);
   printSelection(desserts, dessertSelect, dessertOutput, orders, orderPrices);
   printSelection(beverages, beverageSelect, beverageOutput, orders, orderPrices);
 
   // output price
-  outputTotal(orderPrices, price)
+  outputTotal(orderPrices, price, totalOutput)
 }
 
 // ---------------------------------------------- //
-// 7. Clear order
+// 8. Clear order
 // ---------------------------------------------- //
 
 // Query the clear button
 const Clear = document.querySelector('#cancel');
 
+const receipt = document.querySelector('#receipt');
 
 Clear.addEventListener("click", function(e){
   // prevent default form behaviour
+  receipt.innerHTML = null;
   e.preventDefault();
   // reset select boxes
-  beverageSelect.value = 1;
-  dessertSelect.value = 1;
-  maincourseSelect.value = 1;
-  appetizerSelect.value = 1;
-  // reset output
-  appetizerOutput.innerHTML = null 
-  maincourseOutput.innerHTML = null 
-  dessertOutput.innerHTML = null 
-  beverageOutput.innerHTML = null 
-  totalOutput.innerHTML = null 
-  //reset menuArray and price
+  const allSelects = fullMenu.querySelectorAll('select');
+  allSelects.forEach( aSelect => {
+    aSelect.value = 1;
+  });
+  // Reset Orders and Prices
   orders = []
   orderPrices = []
-
-  outputTotal(orderPrices);
+  price = 0;
+  // Display orders, in our case it will be nothing.
+  displayOrders();
 });
 
 
+// ---------------------------------------------- //
+// 9. Checkout
+// ---------------------------------------------- //
+
+// Query Submit Buttons and Full Menu
+const button = document.querySelector('#submit');
+
+button.addEventListener("click", function(e){
+  // Prevent default form behaviour
+  e.preventDefault();
+
+  // assign price to the total of selected items
+  price = outputTotal(orderPrices, price)
+  receipt.innerHTML = null;
+
+  renderReceipt(price, receipt, orders)
+});
