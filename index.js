@@ -268,52 +268,55 @@ const totalOutput = output.querySelector('#totalOutput')
 // Initialize Empty Array
 var orders = []
 var orderPrices = []
+var price;
 
-// query submit button
+// Query Submit Buttons and Full Menu
 const button = document.querySelector('#submit');
+const fullMenu = document.querySelector('#fullMenu');
+
+fullMenu.addEventListener("input", function(){
+  orders = []
+  orderPrices = []
+  price;
+  displayOrders();
+})
 
 button.addEventListener("click", function(e){
   // prevent form default
   e.preventDefault();
+  orders = []
+  orderPrices = []
+  price;
+  displayOrders();
+});
 
+function displayOrders(){
   // ----------------//
   // 6.2 Appetizers
   // ----------------//
   printSelection(appetizers, appetizerSelect, appetizerOutput);
-    
   // ----------------//
   // 6.3 maincourses
   // ----------------//
   printSelection(maincourses, maincourseSelect, maincourseOutput);
-  
   // ----------------//
   // 6.4 Deserts
   // ----------------//
   printSelection(desserts, dessertSelect, dessertOutput);
-
-    
   // ----------------//
   // 6.5 Beverages
   // ----------------//
   printSelection(beverages, beverageSelect, beverageOutput);
-
-
   // ----------------//
-  // 6.7 Compile
+  // Compile Prices
   // ----------------//
+  outputTotal(orderPrices)
+}
 
-  var price;
-
-  price = orderPrices.reduce((a, b) => a + b, 0);
-
-  // console.log(`total Bill:$ ${price.toFixed(2)}`)
-  console.log(orders);
-  console.log(price);
-
+function outputTotal(array){
+  price = array.reduce((a, b) => a + b, 0);
   totalOutput.innerHTML = `${price.toFixed(2)}`;
-
-
-});
+}
 
 
 function printSelection(array, select, output){
@@ -321,7 +324,7 @@ function printSelection(array, select, output){
   var selectedId = select.value;
   // Find the selected appetizer in appetizer menu
   const result = array.filter(a => a.id == selectedId );
-  output.innerHTML = result[0].name;
+  output.innerHTML = `${result[0].name} $${result[0].price.toFixed(2)}`;
   // Push orders to respective array
   orders.push(result[0].name)
   orderPrices.push(result[0].price);
@@ -350,8 +353,10 @@ Clear.addEventListener("click", function(e){
   beverageOutput.innerHTML = null 
   totalOutput.innerHTML = null 
   //reset menuArray and price
-  var orders = []
-  var orderPrices = []
+  orders = []
+  orderPrices = []
+
+  outputTotal(orderPrices);
 });
 
 
