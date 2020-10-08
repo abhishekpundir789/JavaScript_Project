@@ -170,90 +170,45 @@ const beverages = [
 // ----------------//
 // 4.1 Appetizers
 // ----------------//
-for(i = 0; i < appetizers.length; i++){
-  // create a table row element 
-  const tr = document.createElement('tr');
-  // create the two columns that will go into the table row
-  const colOne = document.createElement('td');
-  const colTwo = document.createElement('td');
-  // Edit the left column's inner html to include the item's id and it's name
-  colOne.innerHTML = `${appetizers[i].id}. ${appetizers[i].name}`
-  // Edit the right column's innter html to include the item's price. Also round the price to (2) decimal points
-  colTwo.innerHTML = `$${appetizers[i].price.toFixed(2)}`
-  // Now we use appendChild() to append the newly edited columns into the table row element we created earlier
-  tr.appendChild(colOne);
-  tr.appendChild(colTwo);
-  // then we select the table, and append the table row which now includes the two <td>'s
-  appetizerTable.appendChild(tr);
-}
+renderTables(appetizers, appetizerTable);
 
 
 // ----------------//
 // 4.2 maincourses
 // ----------------//
-
-for(i = 0; i < maincourses.length; i++){
-  // create a table row element 
-  const tr = document.createElement('tr');
-  // create the two columns that will go into the table row
-  const colOne = document.createElement('td');
-  const colTwo = document.createElement('td'); 
-  // Edit the left column's inner html to include the item's id and it's name
-  colOne.innerHTML=`${maincourses[i].id}. ${maincourses[i].name}`
-  // Edit the right column's innter html to include the item's price. Also round the price to (2) decimal points
-  colTwo.innerHTML=`$${maincourses[i].price.toFixed(2)}`
-   // Now we use appendChild() to append the newly edited columns into the table row element we created earlier
-  tr.appendChild(colOne);
-  tr.appendChild(colTwo);
-   // then we select the table, and append the table row which now includes the two <td>'s
-  maincourseTable.appendChild(tr);
-}
+renderTables(maincourses, maincourseTable);
 
 
 // ----------------//
 // 4.3 Deserts
 // ----------------//
-
-for(i = 0; i < desserts.length; i++){
-  // create a table row element 
-  const tr = document.createElement('tr');
-  // create the two columns that will go into the table row
-  const colOne = document.createElement('td');
-  const colTwo = document.createElement('td'); 
-  // Edit the left column's inner html to include the item's id and it's name
-  colOne.innerHTML=`${desserts[i].id}. ${desserts[i].name}`
-  // Edit the right column's innter html to include the item's price. Also round the price to (2) decimal points
-  colTwo.innerHTML=`$${desserts[i].price.toFixed(2)}`
-  // Now we use appendChild() to append the newly edited columns into the table row element we created earlier
-  tr.appendChild(colOne);
-  tr.appendChild(colTwo);
-  // then we select the table, and append the table row which now includes the two <td>'s
-  dessertTable.appendChild(tr);
-}
+renderTables(desserts, dessertTable);
 
 
 // ----------------//
 // 4.4 Beverages
 // ----------------//
+renderTables(beverages, beverageTable);
 
-for(i = 0; i < beverages.length; i++){
-  // create a table row element 
-  const tr = document.createElement('tr');
-  // create the two columns that will go into the table row
-  const colOne = document.createElement('td');
-  const colTwo = document.createElement('td'); 
-  // Edit the left column's inner html to include the item's id and it's name
-  colOne.innerHTML=`${beverages[i].id}. ${beverages[i].name}`
-  // Edit the right column's innter html to include the item's price. Also round the price to (2) decimal points
-  colTwo.innerHTML=`$${beverages[i].price.toFixed(2)}`
-  // Now we use appendChild() to append the newly edited columns into the table row element we created earlier
-  tr.appendChild(colOne);
-  tr.appendChild(colTwo);
-  // then we select the table, and append the table row which now includes the two <td>'s
-  beverageTable.appendChild(tr);
+
+function renderTables(array, table) {
+  for(i = 0; i < array.length; i++){
+    // create a table row element 
+    const tr = document.createElement('tr');
+    // create the two columns that will go into the table row
+    const colOne = document.createElement('td');
+    const colTwo = document.createElement('td');
+    // Edit the left column's inner html to include the item's id and it's name
+    colOne.innerHTML = `${array[i].id}. ${array[i].name}`
+    // Edit the right column's innter html to include the item's price. Also round the price to (2) decimal points
+    colTwo.innerHTML = `$${array[i].price.toFixed(2)}`
+    // Now we use appendChild() to append the newly edited columns into the table row element we created earlier
+    tr.appendChild(colOne);
+    tr.appendChild(colTwo);
+    // then we select the table, and append the table row which now includes the two <td>'s
+    table.appendChild(tr);
+  }
 }
-
-
 
 // ---------------------------------------------- //
 // 5. Dynamically select options
