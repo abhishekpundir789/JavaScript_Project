@@ -77,17 +77,7 @@ for(i = 0; i < appetizers.length; i++){
     appetizerSelect.appendChild(option);
 }
 
-/*const button = document.querySelector('#selectOrder');
 
-button.addEventListener("click", function(){
-    console.log(appetizerSelect.value)
-
-    var selectedId = appetizerSelect.value;
-
-    const result = appetizers.filter(appetizer => appetizer.id == selectedId );
-
-    console.log(result[0].name);
-});*/
 
 
 // Select the mainCourse table element
@@ -96,7 +86,7 @@ const MaincourseSelect = document.querySelector('#mainCourseSelect')
 
 //create array of objects for main course
 
-const MainCourse=[
+const MainCourses=[
   {
     id: 1,
     name: "No Selection",
@@ -129,7 +119,7 @@ const MainCourse=[
   } 
 ]
 
-for(i=0; i<MainCourse.length; i++){
+for(i=0; i<MainCourses.length; i++){
 
   
  const tr = document.createElement('tr');
@@ -137,8 +127,8 @@ for(i=0; i<MainCourse.length; i++){
  const colOne = document.createElement('td');
  const colTwo = document.createElement('td'); 
 
- colOne.innerHTML=`${MainCourse[i].id}. ${MainCourse[i].name}`
- colTwo.innerHTML=`$${MainCourse[i].price.toFixed(2)}`
+ colOne.innerHTML=`${MainCourses[i].id}. ${MainCourses[i].name}`
+ colTwo.innerHTML=`$${MainCourses[i].price.toFixed(2)}`
 
  tr.appendChild(colOne);
  tr.appendChild(colTwo);
@@ -146,27 +136,15 @@ for(i=0; i<MainCourse.length; i++){
  MaincourseTable.appendChild(tr);
 }
 
- for(i=0; i<MainCourse.length; i++){
+ for(i=0; i<MainCourses.length; i++){
 
   const option = document.createElement('option');
   
-  option.innerHTML = `${MainCourse[i].name} ${MainCourse[i].price}`
-  option.setAttribute("value", MainCourse[i].id);
+  option.innerHTML = `${MainCourses[i].name} ${MainCourses[i].price}`
+  option.setAttribute("value", MainCourses[i].id);
 
   mainCourseSelect.appendChild(option); 
  }
-
- /*const button = document.querySelector('#selectOrder');
-
-button.addEventListener("click", function(){
-    console.log(mainCourseSelect.value)
-
-    var selectedId = mainCourseSelect.value;
-
-    const result = MainCourse.filter(mainCourse => mainCourse.id == selectedId );
-
-    console.log(result[0].name);
-});*/
 
  const Desserttable = document.querySelector('#dessert')
 const Dessertselect = document.querySelector('#dessertSelect')
@@ -299,3 +277,63 @@ for(i=0; i<BeverageMenu.length; i++){
   Beverageselect.appendChild(option); 
  }
 
+ const menuArray=[
+   
+]
+
+
+ const button = document.querySelector('#submit');
+
+button.addEventListener("click", function(e){
+  e.preventDefault();
+  // displayed the menu Items from  Appetizer Table  
+  console.log(appetizerSelect.value)
+
+    var appetizerSelectedId = appetizerSelect.value;
+
+    const appetizerResult = appetizers.filter(appetizer => appetizer.id == appetizerSelectedId );
+    menuArray.push(appetizerResult[0].name);
+    
+
+// displayed the menu Items from  Main Course Table
+    var MaincourseSelectedId = MaincourseSelect.value;
+
+    const MaincourseResult = MainCourses.filter(Maincourse => Maincourse.id == MaincourseSelectedId );
+
+    menuArray.push(MaincourseResult[0].name);
+
+  
+// displayed the menu items from Dessert Table
+    var DessertSelectedId = Dessertselect.value;
+
+    const DessertResult = dessertMenu.filter(DesertMenu => DesertMenu.id == DessertSelectedId );
+
+    menuArray.push(DessertResult[0].name);
+
+    
+// displayed the menu items from Beverage table
+    var beverageSelectedId = Beverageselect.value;
+
+    const beverageResult = BeverageMenu.filter(beverageMenu => beverageMenu.id == beverageSelectedId );
+
+    menuArray.push(beverageResult[0].name);
+
+    var price = 0.0;
+    price=beverageResult[0].price + DessertResult[0].price + MaincourseResult[0].price + appetizerResult[0].price;
+    console.log(`total Bill:$ ${price}`)
+    console.log(menuArray);
+});
+
+
+const Clear = document.querySelector('#cancel');
+
+Clear.addEventListener("click", function(e){
+  e.preventDefault();
+  Beverageselect.value=1;
+  Dessertselect.value=1;
+  MaincourseSelect.value=1;
+  appetizerSelect.value=1;
+  const menuArray=[]
+  price = 0.0;
+  console.log(menuArray);
+});
