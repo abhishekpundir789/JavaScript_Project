@@ -6,10 +6,10 @@ import { maincourses } from './menus/maincourses.js'
 import { desserts } from './menus/desserts.js'
 import { beverages } from './menus/beverages.js'
 
-// ---------------------------------------------- ///
+// ---------------------------------------------- //
 // 2. Import Utility functions
 // ---------------------------------------------- //
-import { renderTables, renderSelect } from './utilities/index.js'
+import { renderTables, renderSelect, printSelection, outputTotal } from './utilities/index.js'
 
 // ---------------------------------------------- ///
 // 3. Query document for all tables
@@ -59,7 +59,6 @@ var orders = []
 var orderPrices = []
 var price;
 
-
 // ----------------//
 // 7.1 Query Output containers
 // ----------------//
@@ -99,31 +98,14 @@ button.addEventListener("click", function(e){
 });
 
 function displayOrders(){
-  // Print selection
-  printSelection(appetizers, appetizerSelect, appetizerOutput);
-  printSelection(maincourses, maincourseSelect, maincourseOutput);
-  printSelection(desserts, dessertSelect, dessertOutput);
-  printSelection(beverages, beverageSelect, beverageOutput);
+  // Print selection for each menu
+  printSelection(appetizers, appetizerSelect, appetizerOutput, orders, orderPrices);
+  printSelection(maincourses, maincourseSelect, maincourseOutput, orders, orderPrices);
+  printSelection(desserts, dessertSelect, dessertOutput, orders, orderPrices);
+  printSelection(beverages, beverageSelect, beverageOutput, orders, orderPrices);
 
   // output price
-  outputTotal(orderPrices)
-}
-
-function outputTotal(array){
-  price = array.reduce((a, b) => a + b, 0);
-  totalOutput.innerHTML = `${price.toFixed(2)}`;
-}
-
-
-function printSelection(array, select, output){
-  // Pull value of beverage select
-  var selectedId = select.value;
-  // Find the selected appetizer in appetizer menu
-  const result = array.filter(a => a.id == selectedId );
-  output.innerHTML = `${result[0].name} $${result[0].price.toFixed(2)}`;
-  // Push orders to respective array
-  orders.push(result[0].name)
-  orderPrices.push(result[0].price);
+  outputTotal(orderPrices, price)
 }
 
 // ---------------------------------------------- //

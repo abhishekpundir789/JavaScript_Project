@@ -18,7 +18,6 @@ const renderTables = (array, table) => {
     });
 }
 
-
 // Renders select options
 const renderSelect = (array, select) => {
     array.forEach( a => {
@@ -31,6 +30,24 @@ const renderSelect = (array, select) => {
       // then we select the table, and append the table row which now includes the two <td>'s
       select.appendChild(option);
     });
-  }
+}
 
-export { renderTables, renderSelect }
+// Prints the selected items to front-end
+const printSelection = (array, select, output, ordersArray, orderPricesArray) => {
+    // Pull value of beverage select
+    var selectedId = select.value;
+    // Find the selected appetizer in appetizer menu
+    const result = array.filter(a => a.id == selectedId );
+    output.innerHTML = `${result[0].name} $${result[0].price.toFixed(2)}`;
+    // Push orders to respective array
+    ordersArray.push(result[0].name)
+    orderPricesArray.push(result[0].price);
+}
+
+// Outputs the total price by reducing an array of prices.
+const outputTotal = (array, priceOutput) => {
+    priceOutput = array.reduce((a, b) => a + b, 0);
+    totalOutput.innerHTML = `${priceOutput.toFixed(2)}`;
+}
+
+export { renderTables, renderSelect, printSelection, outputTotal }
