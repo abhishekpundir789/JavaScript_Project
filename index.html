@@ -6,7 +6,6 @@
     <title>Eat with Warriors</title>
 </head>
 <body>
-    <script src="index.js"></script>
     <header>
         <h1><u>Lord Of The Fries</u></h1>
         <a href=#>Home</a> &nbsp;
@@ -15,31 +14,72 @@
     </header><hr><br>
 
     <main>
-        <h3><u>Please select your item from menu</u></h3>
-        <table>
+      <h3><u>Please select your item from menu</u></h3>
+        <table id="appetizer">
             <tr>
               <th>Appetizer Menu</th>
               <th>Price</th>
             </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
         <form>
-            <select id="mySelect">
-                <option value="No items Selected">1</option>
-                <option value="Texas Cheese Fries &nbsp; &nbsp; &nbsp; $6.87">2</option>
-                <option value="Loaded Nachos Fries &nbsp; &nbsp; &nbsp; $4.25">3</option>
-                <option value="French Fries Board &nbsp; &nbsp; &nbsp; $8.80">4</option>
-                <option value="Lunchion Fries &nbsp; &nbsp; &nbsp; $10.50">5</option>
-                <option value="Lobster Fries &nbsp; &nbsp; &nbsp; $12.36">6</option>
+            <select id="appetizerSelect">
             </select>
         </form><br>
-        <button type ="Select Order" onclick="myFunction();">Select Order</button>
-        <p id="demo"></p>
-        <script>
-            function myFunction(){
-                var x = document.getElementById("mySelect").value;
-                document.getElementById("demo").innerHTML=x;
-            }
-        </script>
+        <button id="selectOrder">Select Order</button>
+        <p id="demo"></p><br>
+        <h3><u>Please select items from Main Course menu</u></h3>
+        <table id ="mainCourse">
+          <tr>
+            <th>Main Course Menu</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        <form>
+          <select id="mainCourseSelect"></select>
+        </form><br>
+        <button id="selectOrder">Select Order</button><br><br>
+        <h3><u> Select items from Dessert Menu</u></h3>
+        <table id="dessert">
+          <tr>
+            <th>Dessert Menu</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        <form>
+          <select id="dessertSelect"></select>
+        </form><br>
+        <button id="selectOrder">Select Order</button><br>
+        <h3><u>Select items from Beverage Menu</u></h3>
+        <table id="beverages">
+          <tr>
+            <th>Beverage Menu</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+        <form>
+          <select id="beverageSelect"></select>
+        </form><br>
+        <button id="selectOrder">Select Order</button><br><br>
+
+        <button id="submit">Submit Order</button>
+        <button id="cancel">Cancel Order</button>
+        <script src="index.js"></script>
     </main>
 </body>
 </html>
-
