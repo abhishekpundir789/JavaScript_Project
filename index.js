@@ -77,7 +77,7 @@ for(i = 0; i < appetizers.length; i++){
     appetizerSelect.appendChild(option);
 }
 
-const button = document.querySelector('#selectOrder');
+/*const button = document.querySelector('#selectOrder');
 
 button.addEventListener("click", function(){
     console.log(appetizerSelect.value)
@@ -87,7 +87,7 @@ button.addEventListener("click", function(){
     const result = appetizers.filter(appetizer => appetizer.id == selectedId );
 
     console.log(result[0].name);
-});
+});*/
 
 
 // Select the mainCourse table element
