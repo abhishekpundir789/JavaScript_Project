@@ -324,8 +324,21 @@ for(i = 0; i < beverages.length; i++){
 // 6. Compile order 
 // ---------------------------------------------- //
 
+
+// ----------------//
+// 6.1 Query Output containers
+// ----------------//
+
+const output = document.querySelector('#output');
+
+const appetizerOutput = output.querySelector('#appetizerOutput');
+const maincourseOutput = output.querySelector('#maincourseOutput');
+const dessertOutput = output.querySelector('#dessertOutput');
+const beverageOutput = output.querySelector('#beverageOutput');
+const totalOutput = output.querySelector('#totalOutput')
+
 // Initialize Empty Array
-const menuArray = []
+var orders = []
 
 // query submit button
 const button = document.querySelector('#submit');
@@ -335,64 +348,69 @@ button.addEventListener("click", function(e){
   e.preventDefault();
 
   // ----------------//
-  // 6.1 Appetizers
+  // 6.2 Appetizers
   // ----------------//
 
   // Pull value of appetizer select
   var appetizerSelectedId = appetizerSelect.value;
   // Find the selected appetizer in appetizer menu
   const appetizerResult = appetizers.filter(appetizer => appetizer.id == appetizerSelectedId );
-  // push selected appetizer to menuArray
-  menuArray.push(appetizerResult[0].name);
+  // push selected appetizer to orders
+  orders.push(appetizerResult[0].name);
+  appetizerOutput.innerHTML = appetizerResult[0].name
     
   // ----------------//
-  // 6.2 maincourses
+  // 6.3 maincourses
   // ----------------//
 
   // Pull value of maincourse select
   var maincourseSelectedId = maincourseSelect.value;
   // Find the selected appetizer in appetizer menu
   const maincourseResult = maincourses.filter(maincourse => maincourse.id == maincourseSelectedId );
-  // push selected appetizer to menuArray
-  menuArray.push(maincourseResult[0].name);
+  // push selected appetizer to orders
+  maincourseOutput.innerHTML = maincourseResult[0].name
 
   
   // ----------------//
-  // 6.3 Deserts
+  // 6.4 Deserts
   // ----------------//
 
   // Pull value of dessert select
   var DessertSelectedId = dessertSelect.value;
   // Find the selected appetizer in appetizer menu
   const DessertResult = desserts.filter(DesertMenu => DesertMenu.id == DessertSelectedId );
-  // push selected appetizer to menuArray
-  menuArray.push(DessertResult[0].name);
+  // push selected appetizer to orders
+  dessertOutput.innerHTML = DessertResult[0].name
 
     
   // ----------------//
-  // 6.4 Beverages
+  // 6.5 Beverages
   // ----------------//
 
   // Pull value of beverage select
   var beverageSelectedId = beverageSelect.value;
   // Find the selected appetizer in appetizer menu
   const beverageResult = beverages.filter(beverageMenu => beverageMenu.id == beverageSelectedId );
-  // push selected appetizer to menuArray
-  menuArray.push(beverageResult[0].name);
+  beverageOutput.innerHTML = beverageResult[0].name;
 
   // ----------------//
-  // 6.5 Compile
+  // 6.7 Compile
   // ----------------//
 
-    var price;
+  var price;
 
-    price = beverageResult[0].price + 
-            DessertResult[0].price + 
-            maincourseResult[0].price + 
-            appetizerResult[0].price;
+  price = beverageResult[0].price + 
+          DessertResult[0].price + 
+          maincourseResult[0].price + 
+          appetizerResult[0].price;
 
-    console.log(`total Bill:$ ${price.toFixed(2)}`)
-    console.log(menuArray);
+  console.log(`total Bill:$ ${price.toFixed(2)}`)
+  console.log(orders);
+  console.log(price);
+
+  totalOutput.innerHTML = `${price.toString()}`;
+
+
 });
 
 // ---------------------------------------------- //
@@ -412,6 +430,8 @@ Clear.addEventListener("click", function(e){
   maincourseSelect.value=1;
   appetizerSelect.value=1;
   //reset menuArray and price
-  const menuArray=[]
-  console.log(menuArray);
+  var orders = []
+  console.log(orders);
 });
+
+
