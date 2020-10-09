@@ -59,14 +59,14 @@ table {
 # Typography
 --------------------------------------------------------------*/
 * h1 {
-  font-family: 'Merriweather', serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-style: normal;
   color: #262626;
   letter-spacing: .05em; }
 
 * h2 {
-  font-family: 'Merriweather', serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 2em;
@@ -75,7 +75,7 @@ table {
   margin-bottom: 7px; }
 
 * h3 {
-  font-family: 'Merriweather', serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 2em;
@@ -84,14 +84,14 @@ table {
   margin-bottom: 7px; }
 
 * h4 {
-  font-family: 'Merriweather', serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-style: normal;
   letter-spacing: .05em;
   color: #262626; }
 
 * h5 {
-  font-family: 'Merriweather', serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-style: normal;
   letter-spacing: .05em;
@@ -122,7 +122,8 @@ header {
   left: 0;
   top: 0;
   width: 100%;
-  background: white; }
+  background: white;
+  z-index: 300; }
   header img {
     width: 50px; }
   header .logo {
@@ -132,6 +133,68 @@ header {
     font-size: 25px;
     margin: 0;
     margin-left: 15px; }
+
+article.output {
+  height: auto;
+  height: 100%;
+  min-height: 100vh;
+  display: flex; }
+
+#output {
+  padding: 15px 30px;
+  height: 100%;
+  display: block; }
+  #output li {
+    border: solid 3px #ededed;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 7px 14px;
+    min-width: 250px; }
+    #output li h3 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9em;
+      font-weight: 400;
+      color: #dd2c2c; }
+    #output li p {
+      font-size: 1.2em; }
+
+#receipt {
+  padding: 15px 30px;
+  height: 100%;
+  display: block; }
+  #receipt ul#receiptList {
+    border-bottom: 1px solid #ededed;
+    margin-bottom: 7px; }
+  #receipt ul#receiptList li {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+    margin-top: 14px; }
+    #receipt ul#receiptList li span:nth-child(1) {
+      max-width: 25px;
+      padding-right: 20px; }
+    #receipt ul#receiptList li span:nth-child(2) {
+      width: 200px; }
+  #receipt .receiptItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 7px; }
+
+.receiptItem:nth-child(1) {
+  color: red; }
+
+.initialTotal {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-top: 1px solid #ededed;
+  padding-top: 7px; }
+  .initialTotal p:first-of-type {
+    margin-right: 7px; }
+  .initialTotal p {
+    margin: 0; }
 
 aside {
   display: block;
@@ -233,6 +296,9 @@ tr td:nth-child(2),
 tr th:nth-child(2) {
   padding-left: 14px;
   margin-right: -1px; }
+
+body {
+  overflow: hidden; }
 
 main {
   display: flex;
