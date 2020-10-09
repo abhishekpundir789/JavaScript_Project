@@ -3,6 +3,14 @@ aside{
     border-left: 10px solid $highlight;
     padding: 15px 30px;
     border-right: 1px solid $bg-grey;
+    position: relative;
+
+    form {
+        max-height: calc(100vh - 300px);
+        overflow-y: scroll;
+        padding-right: 5px;
+    }
+
 
     .menuHeader{
         font-weight: 700;
@@ -32,6 +40,9 @@ aside{
     .buttonFlex{
         display: flex;
         margin-top: 20px;
+        bottom:0;
+        left: 0;
+        width: 100%;
 
         button:nth-child(1){
             flex: 2;
@@ -72,3 +83,22 @@ aside{
         }
     }
 }
+
+
+form {
+    scrollbar-width: thin;
+    scrollbar-color: $highlight $bg-grey;
+  }
+  
+  /* Works on Chrome/Edge/Safari */
+  form::-webkit-scrollbar {
+    width: 12px;
+  }
+  form::-webkit-scrollbar-track {
+    background: $bg-grey;
+  }
+  form::-webkit-scrollbar-thumb {
+    background-color: $highlight;
+    border-radius: 20px;
+    border: 3px solid $bg-grey;
+  }

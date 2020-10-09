@@ -137,7 +137,12 @@ aside {
   display: block;
   border-left: 10px solid #dd2c2c;
   padding: 15px 30px;
-  border-right: 1px solid #ededed; }
+  border-right: 1px solid #ededed;
+  position: relative; }
+  aside form {
+    max-height: calc(100vh - 300px);
+    overflow-y: scroll;
+    padding-right: 5px; }
   aside .menuHeader {
     font-weight: 700;
     font-size: 20px;
@@ -158,7 +163,10 @@ aside {
     margin-top: -1px; }
   aside .buttonFlex {
     display: flex;
-    margin-top: 20px; }
+    margin-top: 20px;
+    bottom: 0;
+    left: 0;
+    width: 100%; }
     aside .buttonFlex button:nth-child(1) {
       flex: 2;
       margin-right: 20px;
@@ -184,10 +192,28 @@ aside {
       box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.125);
       transition: .2s ease-in-out; }
 
+form {
+  scrollbar-width: thin;
+  scrollbar-color: #dd2c2c #ededed; }
+
+/* Works on Chrome/Edge/Safari */
+form::-webkit-scrollbar {
+  width: 12px; }
+
+form::-webkit-scrollbar-track {
+  background: #ededed; }
+
+form::-webkit-scrollbar-thumb {
+  background-color: #dd2c2c;
+  border-radius: 20px;
+  border: 3px solid #ededed; }
+
 table {
   font-family: 'Lato', sans-serif;
   margin-top: 30px;
   width: 100%; }
+  table:nth-child(1) {
+    margin-top: 0; }
   table tr:nth-child(1) {
     background: #f7f7f7; }
 
