@@ -11,17 +11,17 @@ const maincourses = [
     },
     {
       id: 3,
-      name: "Texas Chilli Fries",
+      name: "Texas Chili Fries",
       price: 8.89
     },
     {
       id: 4,
-      name: "Waffle Fry Nachos",
+      name: "Waffle Fry Nacho",
       price: 10.50
     },
     {
       id: 5,
-      name: "Steak And Fries Salad",
+      name: "Steak and Fries",
       price: 10.99
     },
     {

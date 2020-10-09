@@ -16,7 +16,7 @@ const beverages = [
     },
     {
       id: 4,
-      name: "Strawberry Crafted Beer",
+      name: "Strawberry Craft Beer",
       price: 3.99
     },
     {
@@ -28,7 +28,12 @@ const beverages = [
       id:6,
       name: "Mango Shake",
       price: 3.45
-    } 
+    },
+    {
+      id:7,
+      name: "Blood of My Enemies",
+      price: 8.45
+    }  
   ]
 
 export { beverages }

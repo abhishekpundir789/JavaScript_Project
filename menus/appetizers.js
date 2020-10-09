@@ -11,7 +11,7 @@ const appetizers = [
     },
     {
       id: 3,
-      name: "Loaded Nachos Fries",
+      name: "Loaded Nacho Fries",
       price: 4.25
     },
     {
@@ -21,13 +21,18 @@ const appetizers = [
     },
     {
       id: 5,
-      name: "Lunchion Fries",
+      name: "Luncheon Fries",
       price: 4.50 
     },
     {
       id:6,
       name: "Lobster Fries",
       price: 12.36
+    },
+    {
+      id:7,
+      name: "Enemy Souls",
+      price: 8.76
     }
 ]
 

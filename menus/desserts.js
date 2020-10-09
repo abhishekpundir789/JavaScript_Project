@@ -16,7 +16,7 @@ const desserts = [
     },
     {
       id: 4,
-      name: "Vegan Chocolotae Cake",
+      name: "Vegan Chocolate Cake",
       price: 10.50
     },
     {
