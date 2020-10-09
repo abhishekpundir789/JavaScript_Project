@@ -137,8 +137,14 @@ header {
 article.output {
   height: auto;
   height: 100%;
-  min-height: 100vh;
-  display: flex; }
+  display: flex;
+  flex-direction: column; }
+  @media screen and (min-width: 720px) {
+    article.output {
+      min-height: 100vh; } }
+  @media screen and (min-width: 1170px) {
+    article.output {
+      flex-direction: row !important; } }
 
 #output {
   padding: 15px 30px;
@@ -149,7 +155,10 @@ article.output {
     border-radius: 5px;
     margin-bottom: 15px;
     padding: 7px 14px;
-    min-width: 300px; }
+    min-width: 100%; }
+    @media screen and (min-width: 720px) {
+      #output li {
+        min-width: 300px; } }
     #output li h3 {
       font-family: 'Lato', sans-serif;
       font-size: 0.9em;
@@ -162,15 +171,21 @@ article.output {
   padding: 15px 30px;
   height: 100%;
   display: block; }
+  @media screen and (min-width: 720px) {
+    #receipt {
+      min-width: 300px; } }
   #receipt ul#receiptList {
     border-bottom: 1px solid #ededed;
     margin-bottom: 7px; }
   #receipt ul#receiptList li {
-    width: 300px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 7px;
     margin-top: 14px; }
+    @media screen and (min-width: 720px) {
+      #receipt ul#receiptList li {
+        width: 300px; } }
     #receipt ul#receiptList li span {
       color: #a0a0a0 !important; }
     #receipt ul#receiptList li span:nth-child(1) {
@@ -205,9 +220,13 @@ aside {
   border-right: 1px solid #ededed;
   position: relative; }
   aside form {
-    max-height: calc(100vh - 300px);
-    overflow-y: scroll;
-    padding-right: 5px; }
+    max-height: 100%;
+    padding-right: 0px; }
+    @media screen and (min-width: 720px) {
+      aside form {
+        max-height: calc(100vh - 300px);
+        overflow-y: scroll;
+        padding-right: 5px; } }
   aside .menuHeader {
     font-weight: 700;
     font-size: 20px;
@@ -230,9 +249,20 @@ aside {
   aside .buttonFlex {
     display: flex;
     margin-top: 20px;
+    position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%; }
+    width: 100%;
+    background: white;
+    padding: 14px 14px;
+    border-top: 1px solid #ededed;
+    box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.125); }
+    @media screen and (min-width: 720px) {
+      aside .buttonFlex {
+        position: relative;
+        border-top: unset;
+        box-shadow: unset;
+        padding: unset; } }
     aside .buttonFlex button:nth-child(1) {
       flex: 2;
       margin-right: 20px;
@@ -301,12 +331,21 @@ tr th:nth-child(2) {
   margin-right: -1px; }
 
 body {
-  overflow: hidden; }
+  overflow: scroll; }
+  @media screen and (min-width: 720px) {
+    body {
+      overflow: hidden; } }
 
 main {
   display: flex;
+  flex-direction: column;
   padding-top: 65px;
-  min-height: 100vh; }
+  padding-bottom: 59px; }
+  @media screen and (min-width: 720px) {
+    main {
+      flex-direction: row;
+      min-height: 100vh;
+      padding-bottom: 0; } }
 
 section {
   padding: 0 40px; }

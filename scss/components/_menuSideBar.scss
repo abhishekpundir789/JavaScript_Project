@@ -6,9 +6,14 @@ aside{
     position: relative;
 
     form {
-        max-height: calc(100vh - 300px);
-        overflow-y: scroll;
-        padding-right: 5px;
+        max-height: 100%;
+        padding-right: 0px;
+
+        @media screen and (min-width: 720px){
+            max-height: calc(100vh - 300px);
+            overflow-y: scroll;
+            padding-right: 5px;
+        }
     }
 
 
@@ -41,9 +46,21 @@ aside{
     .buttonFlex{
         display: flex;
         margin-top: 20px;
+        position: fixed;
         bottom:0;
         left: 0;
         width: 100%;
+        background: white;
+        padding: 14px 14px;
+        border-top: 1px solid $bg-grey;
+        box-shadow: $boxshadow-u;
+
+        @media screen and (min-width: 720px){
+            position: relative;
+            border-top: unset;
+            box-shadow: unset;
+            padding: unset;
+        }
 
         button:nth-child(1){
             flex: 2;

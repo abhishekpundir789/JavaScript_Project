@@ -1,8 +1,16 @@
 article.output{
     height: auto;
     height: 100%;
-    min-height: 100vh;
     display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 720px){
+        min-height: 100vh;
+    }
+
+    @media screen and (min-width: 1170px){
+        flex-direction: row !important;
+    }
 }
 
 #output{
@@ -11,12 +19,17 @@ article.output{
     display: block;
 
 
+
     li{
         border: solid 3px $bg-grey;
         border-radius: 5px;
         margin-bottom: 15px;
         padding: 7px 14px;
-        min-width: 300px;
+        min-width: 100%;
+
+        @media screen and (min-width: 720px){
+            min-width: 300px;
+        }
 
         h3{
             font-family: 'Lato', sans-serif;
@@ -37,17 +50,25 @@ article.output{
     height: 100%;
     display: block;
 
+    @media screen and (min-width: 720px){
+        min-width: 300px;
+    }
+
     ul#receiptList{
         border-bottom: 1px solid $bg-grey;
         margin-bottom: 7px;
     }
 
     ul#receiptList li {
-        width: 300px;
+        width: 100%;
         display: flex;
         justify-content: space-between;
         margin-bottom: 7px;
         margin-top: 14px;
+
+        @media screen and (min-width: 720px){
+            width: 300px;
+        }
 
 
         span{
