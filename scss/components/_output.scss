@@ -16,7 +16,7 @@ article.output{
         border-radius: 5px;
         margin-bottom: 15px;
         padding: 7px 14px;
-        min-width: 250px;
+        min-width: 300px;
 
         h3{
             font-family: 'Lato', sans-serif;
@@ -48,6 +48,11 @@ article.output{
         justify-content: space-between;
         margin-bottom: 7px;
         margin-top: 14px;
+
+
+        span{
+            color: #a0a0a0 !important;
+        }
 
         span:nth-child(1){
             max-width: 25px;

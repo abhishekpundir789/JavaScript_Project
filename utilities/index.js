@@ -10,7 +10,7 @@ const renderTables = (array, table) => {
       const colOne = document.createElement('td');
       const colTwo = document.createElement('td');
       // Edit the left column's inner html to include the item's id and it's name
-      colOne.innerHTML = `${a.id}. ${a.name}`
+      colOne.innerHTML = `${a.name}`
       // Edit the right column's innter html to include the item's price. Also round the price to (2) decimal points
       colTwo.innerHTML = `$${a.price.toFixed(2)}`
       // Now we use appendChild() to append the newly edited columns into the table row element we created earlier
@@ -97,7 +97,7 @@ const renderReceipt = (price, receiptElement, ordersArray) => {
     
     spanQuantity.innerHTML = 1;
     spanName.innerHTML = order.name
-    spanPrice.innerHTML = order.price.toFixed(2);
+    spanPrice.innerHTML = `$ ${order.price.toFixed(2)}`;
 
     listItem.appendChild(spanQuantity);
     listItem.appendChild(spanName);
@@ -122,7 +122,7 @@ const renderReceipt = (price, receiptElement, ordersArray) => {
   const spanSubtotalOutput = document.createElement('span');
 
   spanSubtotalLabel.innerHTML = 'Subtotal:'
-  spanSubtotalOutput.innerHTML = subTotal.toFixed(2);
+  spanSubtotalOutput.innerHTML = `$ ${subTotal.toFixed(2)}`;
 
   receiptItem__Subtotal.appendChild(spanSubtotalLabel)
   receiptItem__Subtotal.appendChild(spanSubtotalOutput)
@@ -137,7 +137,7 @@ const renderReceipt = (price, receiptElement, ordersArray) => {
   const spanTipOutput = document.createElement('span');
 
   spanTipLabel.innerHTML = 'Tip:'
-  spanTipOutput.innerHTML = tipTotal.toFixed(2);
+  spanTipOutput.innerHTML = `$ ${tipTotal.toFixed(2)}`;
 
   receiptItem__Tip.appendChild(spanTipLabel);
   receiptItem__Tip.appendChild(spanTipOutput);
@@ -152,7 +152,7 @@ const renderReceipt = (price, receiptElement, ordersArray) => {
   const spanTaxOutput = document.createElement('span');
 
   spanTaxLabel.innerHTML = 'Tax:'
-  spanTaxOutput.innerHTML = taxTotal.toFixed(2);
+  spanTaxOutput.innerHTML = `$ ${taxTotal.toFixed(2)}`;
 
   receiptItem__Tax.appendChild(spanTaxLabel);
   receiptItem__Tax.appendChild(spanTaxOutput);
@@ -167,7 +167,7 @@ const renderReceipt = (price, receiptElement, ordersArray) => {
   const spanTotalOutput = document.createElement('span');
 
   spanTotalLabel.innerHTML = 'Total:'
-  spanTotalOutput.innerHTML = grandTotal.toFixed(2);
+  spanTotalOutput.innerHTML = `$ ${grandTotal.toFixed(2)}`;
 
   receiptItem__Total.appendChild(spanTotalLabel);
   receiptItem__Total.appendChild(spanTotalOutput);
