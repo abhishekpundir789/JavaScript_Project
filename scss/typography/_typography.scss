@@ -4,6 +4,14 @@
     letter-spacing: .05em;
 }
 
+* h2 {
+    @include heading-bold;
+    font-size: 2em;
+    color: #262626;
+    letter-spacing: .05em;
+    margin-bottom: 7px;
+}
+
 * h3 {
     @include heading-bold;
     font-size: 2em;

@@ -1,0 +1,74 @@
+aside{
+    display: block;
+    border-left: 10px solid $highlight;
+    padding: 15px 30px;
+    border-right: 1px solid $bg-grey;
+
+    .menuHeader{
+        font-weight: 700;
+        font-size: 20px;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    .subHeader{
+        display: block;
+        margin-bottom: 30px;
+        border-bottom: 1px solid $bg-grey;
+        padding-bottom: 15px;
+        color: $lowlight;
+    }
+
+
+    select{
+        background: $bg-grey;
+        width: 100%;
+        padding: 5px 7px;
+        border: 1px solid $bg-grey;
+        margin-top: -1px;
+    }
+
+    .buttonFlex{
+        display: flex;
+        margin-top: 20px;
+
+        button:nth-child(1){
+            flex: 2;
+            margin-right: 20px;
+            background: $accent;
+            color: white;
+
+            &:hover,
+            &:active,
+            &:focus{
+                background: $accentlow;
+            }
+        }
+
+        button:nth-child(2){
+            flex: 1;
+            background: $bg-grey;
+            color: $text-dark;
+
+            &:hover,
+            &:active,
+            &:focus{
+                background: $bg-offwhite;
+            }
+        }
+
+        button {
+            border: unset !important;
+            border-radius: 0 !important;
+            padding: 5px 7px;
+            font-size: 1em;
+            font-weight: 700;
+            letter-spacing: 0.025em;
+            cursor: pointer;
+            border-radius: 1px;
+            box-shadow: $boxshadow-d;
+            transition: .2s ease-in-out;
+        }
+    }
+}

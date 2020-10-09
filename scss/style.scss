@@ -1,7 +1,6 @@
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
-@import "normalize";
 @import "resets";
 
 
@@ -21,5 +20,7 @@
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
-@import "components/components";
+@import "components/header";
+@import "components/menuSideBar";
+@import "components/menuTables";
 @import "layout/sections";

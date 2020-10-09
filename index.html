@@ -3,89 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <title>Eat with Warriors</title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
     <header>
-        <h1><u>Lord Of The Fries</u></h1>
-        <a href=#>Home</a> &nbsp;
-        <a href=#>Order Online</a>&nbsp;
-        <a href=#>Food Items</a>
-    </header><hr><br>
+        <section>
+            <div class="wrap">
+                <div class="logo">
+                    <img src="./images/helmet.svg" alt="logo"> <h2>Warriors Eat</h2>
+                </div>
+            </div>
+        </section>
+    </header>
 
     <main>
-        <form id="fullMenu">
+        <aside>
+            <span class="menuHeader">Today's Menu:</span>
+            <span class="subHeader">Spartan Meals:</span>
+            <form id="fullMenu">
 
-            <!-- Select Appetizer -->
-            <table id="appetizers">
-                <tr>
-                    <th>Appetizer Menu</th>
+                <!-- Select Appetizer -->
+                <table id="appetizers">
+                    <tr>
+                        <th>Appetizer Menu</th>
+                        <th>Price</th>
+                    </tr>
+                </table>
+
+                <select id="appetizerSelect"></select>
+
+                <!-- Select Maincourse -->
+                <table id="maincourses">
+                    <tr>
+                    <th>Main Course Menu</th>
                     <th>Price</th>
-                </tr>
-            </table>
+                    </tr>
+                </table>
 
-            <select id="appetizerSelect"></select>
+                <select id="maincourseSelect"></select>
 
-            <!-- Select Maincourse -->
-            <table id="maincourses">
-                <tr>
-                <th>Main Course Menu</th>
-                <th>Price</th>
-                </tr>
-            </table>
+                <!-- Select Dessert -->
+                <table id="desserts">
+                    <tr>
+                    <th>Dessert Menu</th>
+                    <th>Price</th>
+                    </tr>
+                </table>
 
-            <select id="maincourseSelect"></select>
+                <select id="dessertSelect"></select>
 
-            <!-- Select Dessert -->
-            <table id="desserts">
-                <tr>
-                <th>Dessert Menu</th>
-                <th>Price</th>
-                </tr>
-            </table>
+                <!-- Select Beverages -->
+                <table id="beverages">
+                    <tr>
+                    <th>Beverage Menu</th>
+                    <th>Price</th>
+                    </tr>
+                </table>
 
-            <select id="dessertSelect"></select>
+                <select id="beverageSelect"></select>
 
-            <!-- Select Beverages -->
-            <table id="beverages">
-                <tr>
-                <th>Beverage Menu</th>
-                <th>Price</th>
-                </tr>
-            </table>
+                <!-- Submit/Clear order -->
 
-            <select id="beverageSelect"></select>
+                <div class="buttonFlex">
+                    <button id="submit">Checkout</button>
+                    <button id="cancel">Cancel</button>
+                </div>
+            </form>
+        </aside>
+        <article>
+            <div id="output">
+                <h2>Order:</h2>
+                <ul>
+                    <li>
+                        <h3>Appetizer</h3>
+                        <p id="appetizerOutput"></p>
+                    </li>
+                    <li>
+                        <h3>Maincourse</h3>
+                        <p id="maincourseOutput"></p>
+                    </li>
+                    <li>
+                        <h3>Dessert</h3>
+                        <p id="dessertOutput"></p>
+                    </li>
+                    <li>
+                        <h3>Beverage</h3>
+                        <p id="beverageOutput"></p>
+                    </li>
+                </ul>
+                <p id="totalOutput"> </p>
+            </div>
 
-            <!-- Submit/Clear order -->
-            <br/>
-            <button id="submit">Checkout</button>
-            <button id="cancel">Cancel Order</button>
-        </form>
-        
-        <div id="output">
-            <h2>Order:</h2>
-            <ul>
-                <li>
-                    <h3>Appetizer</h3>
-                    <p id="appetizerOutput"></p>
-                </li>
-                <li>
-                    <h3>Maincourse</h3>
-                    <p id="maincourseOutput"></p>
-                </li>
-                <li>
-                    <h3>Dessert</h3>
-                    <p id="dessertOutput"></p>
-                </li>
-                <li>
-                    <h3>Beverage</h3>
-                    <p id="beverageOutput"></p>
-                </li>
-            </ul>
-            <p id="totalOutput"> </p>
-        </div>
-
-        <div id="receipt"></div>
+            <div id="receipt"></div>
+        </article>
 
     </main>
     <script type="module" src="index.js"></script>

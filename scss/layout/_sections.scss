@@ -1,0 +1,13 @@
+main{
+    display: flex;
+    padding-top: 65px;
+    min-height: 100vh;
+}
+
+section {
+    padding: 0 40px;
+
+    .wrap{
+        max-width: 1800px;
+    }
+}
