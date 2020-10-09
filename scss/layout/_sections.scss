@@ -1,0 +1,28 @@
+body{
+    overflow: scroll;
+
+    @media screen and (min-width: 720px){
+        overflow: hidden;
+    }
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    padding-top: 65px;
+    padding-bottom: 59px;
+
+    @media screen and (min-width: 720px){
+        flex-direction: row;
+        min-height: 100vh;
+        padding-bottom: 0;
+    }
+}
+
+section {
+    padding: 0 40px;
+
+    .wrap{
+        max-width: 1800px;
+    }
+}

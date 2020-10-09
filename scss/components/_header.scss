@@ -1,0 +1,26 @@
+header {
+    border-bottom: $bg-grey 1px solid;
+    padding: 7px 0;
+    box-shadow: $boxshadow-d;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white;
+    z-index: 300;
+
+    img {
+        width: 50px;
+    }
+
+    .logo{
+        display: flex;
+    }
+
+    h2 {
+        line-height: 50px;
+        font-size: 25px;
+        margin: 0;
+        margin-left: 15px;
+    }
+}

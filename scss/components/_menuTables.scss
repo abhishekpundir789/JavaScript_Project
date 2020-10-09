@@ -1,0 +1,39 @@
+table {
+    font-family: 'Lato', sans-serif;
+    margin-top: 30px;
+    width: 100%;
+
+    &:nth-child(1) {
+        margin-top: 0;
+    }
+
+    tr:nth-child(1){
+        background: $bg-offwhite;
+    }
+}
+
+th {
+    font-weight: 700;
+    color: $highlight;
+    text-align: left;
+    padding: 3px 7px; 
+}
+
+tr {
+
+    td, th{
+        padding: 3px 7px;
+        border: solid 1px $bg-grey;
+    }
+
+    td:nth-child(1),
+    th:nth-child(1){
+        border-right: solid 1px rgba($color: #000000, $alpha: .0) !important;
+    }
+
+    td:nth-child(2),
+    th:nth-child(2){
+        padding-left: 14px;
+        margin-right: -1px;
+    }
+}

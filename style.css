@@ -1,0 +1,355 @@
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+* {
+  box-sizing: border-box; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1;
+  position: relative; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  box-sizing: border-box; }
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+* h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #262626;
+  letter-spacing: .05em; }
+
+* h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2em;
+  color: #262626;
+  letter-spacing: .05em;
+  margin-bottom: 7px; }
+
+* h3 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2em;
+  color: #262626;
+  letter-spacing: .05em;
+  margin-bottom: 7px; }
+
+* h4 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: .05em;
+  color: #262626; }
+
+* h5 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: .05em;
+  color: #262626; }
+
+* p,
+* span,
+* a,
+* button {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #262626;
+  max-width: 500px;
+  line-height: 1.3em; }
+
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+header {
+  border-bottom: #ededed 1px solid;
+  padding: 7px 0;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.125);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: white;
+  z-index: 300; }
+  header img {
+    width: 50px; }
+  header .logo {
+    display: flex; }
+  header h2 {
+    line-height: 50px;
+    font-size: 25px;
+    margin: 0;
+    margin-left: 15px; }
+
+article.output {
+  height: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+  @media screen and (min-width: 720px) {
+    article.output {
+      min-height: 100vh; } }
+  @media screen and (min-width: 1170px) {
+    article.output {
+      flex-direction: row !important; } }
+
+#output {
+  padding: 15px 30px;
+  height: 100%;
+  display: block; }
+  #output li {
+    border: solid 3px #ededed;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 7px 14px;
+    min-width: 100%; }
+    @media screen and (min-width: 720px) {
+      #output li {
+        min-width: 300px; } }
+    #output li h3 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9em;
+      font-weight: 400;
+      color: #dd2c2c; }
+    #output li p {
+      font-size: 1.2em; }
+
+#receipt {
+  padding: 15px 30px;
+  height: 100%;
+  display: block; }
+  @media screen and (min-width: 720px) {
+    #receipt {
+      min-width: 300px; } }
+  #receipt ul#receiptList {
+    border-bottom: 1px solid #ededed;
+    margin-bottom: 7px; }
+  #receipt ul#receiptList li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+    margin-top: 14px; }
+    @media screen and (min-width: 720px) {
+      #receipt ul#receiptList li {
+        width: 300px; } }
+    #receipt ul#receiptList li span {
+      color: #a0a0a0 !important; }
+    #receipt ul#receiptList li span:nth-child(1) {
+      max-width: 25px;
+      padding-right: 20px; }
+    #receipt ul#receiptList li span:nth-child(2) {
+      width: 200px; }
+  #receipt .receiptItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 7px; }
+
+.receiptItem:nth-child(1) {
+  color: red; }
+
+.initialTotal {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-top: 1px solid #ededed;
+  padding-top: 7px; }
+  .initialTotal p:first-of-type {
+    margin-right: 7px; }
+  .initialTotal p {
+    margin: 0; }
+
+aside {
+  display: block;
+  border-left: 10px solid #dd2c2c;
+  padding: 15px 30px;
+  border-right: 1px solid #ededed;
+  position: relative; }
+  aside form {
+    max-height: 100%;
+    padding-right: 0px; }
+    @media screen and (min-width: 720px) {
+      aside form {
+        max-height: calc(100vh - 300px);
+        overflow-y: scroll;
+        padding-right: 5px; } }
+  aside .menuHeader {
+    font-weight: 700;
+    font-size: 20px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.03em; }
+  aside .subHeader {
+    display: block;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 15px;
+    color: #b52424; }
+  aside select {
+    background: #ededed;
+    width: 100%;
+    padding: 5px 7px;
+    border: 1px solid #ededed;
+    margin-top: -1px;
+    cursor: pointer; }
+  aside .buttonFlex {
+    display: flex;
+    margin-top: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 14px 14px;
+    border-top: 1px solid #ededed;
+    box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.125); }
+    @media screen and (min-width: 720px) {
+      aside .buttonFlex {
+        position: relative;
+        border-top: unset;
+        box-shadow: unset;
+        padding: unset; } }
+    aside .buttonFlex button:nth-child(1) {
+      flex: 2;
+      margin-right: 20px;
+      background: #20BF55;
+      color: white; }
+      aside .buttonFlex button:nth-child(1):hover, aside .buttonFlex button:nth-child(1):active, aside .buttonFlex button:nth-child(1):focus {
+        background: #3eb265; }
+    aside .buttonFlex button:nth-child(2) {
+      flex: 1;
+      background: #ededed;
+      color: #333333; }
+      aside .buttonFlex button:nth-child(2):hover, aside .buttonFlex button:nth-child(2):active, aside .buttonFlex button:nth-child(2):focus {
+        background: #f7f7f7; }
+    aside .buttonFlex button {
+      border: unset !important;
+      border-radius: 0 !important;
+      padding: 5px 7px;
+      font-size: 1em;
+      font-weight: 700;
+      letter-spacing: 0.025em;
+      cursor: pointer;
+      border-radius: 1px;
+      box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.125);
+      transition: .2s ease-in-out; }
+
+form {
+  scrollbar-width: thin;
+  scrollbar-color: #dd2c2c #ededed; }
+
+/* Works on Chrome/Edge/Safari */
+form::-webkit-scrollbar {
+  width: 12px; }
+
+form::-webkit-scrollbar-track {
+  background: #ededed; }
+
+form::-webkit-scrollbar-thumb {
+  background-color: #dd2c2c;
+  border-radius: 20px;
+  border: 3px solid #ededed; }
+
+table {
+  font-family: 'Lato', sans-serif;
+  margin-top: 30px;
+  width: 100%; }
+  table:nth-child(1) {
+    margin-top: 0; }
+  table tr:nth-child(1) {
+    background: #f7f7f7; }
+
+th {
+  font-weight: 700;
+  color: #dd2c2c;
+  text-align: left;
+  padding: 3px 7px; }
+
+tr td, tr th {
+  padding: 3px 7px;
+  border: solid 1px #ededed; }
+tr td:nth-child(1),
+tr th:nth-child(1) {
+  border-right: solid 1px rgba(0, 0, 0, 0) !important; }
+tr td:nth-child(2),
+tr th:nth-child(2) {
+  padding-left: 14px;
+  margin-right: -1px; }
+
+body {
+  overflow: scroll; }
+  @media screen and (min-width: 720px) {
+    body {
+      overflow: hidden; } }
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding-top: 65px;
+  padding-bottom: 59px; }
+  @media screen and (min-width: 720px) {
+    main {
+      flex-direction: row;
+      min-height: 100vh;
+      padding-bottom: 0; } }
+
+section {
+  padding: 0 40px; }
+  section .wrap {
+    max-width: 1800px; }
+
+/*# sourceMappingURL=style.css.map */
